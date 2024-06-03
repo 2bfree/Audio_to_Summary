@@ -3,7 +3,7 @@ import streamlit as st
 import os
 from lc_functions import split_text, initialize_llm, summarize_text
 
-st.title("Audio to :blue[_Summary_]")
+st.title("회의록 작성 테스트")
 
 # Get the open AI API Key
 api_key = st.text_input(
