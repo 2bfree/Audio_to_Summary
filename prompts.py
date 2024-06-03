@@ -4,7 +4,7 @@ from langchain.prompts import PromptTemplate
 prompt_template= """
 You are a management assistant with a specialization in diabetes and endocrine disease. You are takingnotes for a meeting.
 Write a detailed summary of the following transcript of a meeting:
-Summary in zh-tw:
+Summary in korean:
 ------------
 {text}
 ------------
@@ -23,7 +23,7 @@ refine_template = (
     "------------\n"
     "{text}\n"
     "------------\n"
-    "Given the new context, refine the original summary and summary 10 keypoints from original text in zh-tw ."
+    "Given the new context, refine the original summary and summary 10 keypoints from original text in korean ."
     )
 refine_prompt = PromptTemplate(
     template=refine_template,
