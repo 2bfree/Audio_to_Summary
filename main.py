@@ -22,9 +22,11 @@ os.environ["OPENAI_API_KEY"] = api_key
 audio = st.file_uploader(label="Upload audio file", 
                          type=['wav','mp3','m4a'])
 if audio is not None:
+      # response = openai.Audio.transcribe(model="whisper-1", 
+      #                                    file=audio, 
+      #                                    api_key=api_key)
       response = openai.Audio.transcribe(model="whisper-1", 
-                                         file=audio, 
-                                         api_key=api_key)
+                                         file=audio)
    # Split the text into chunks
    
       transcript = response["text"]
