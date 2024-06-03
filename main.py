@@ -29,7 +29,7 @@ if audio is not None:
                                          file=audio)
    # Split the text into chunks
    
-      transcript = response["text"]
+      transcript = response.get["text"]
       docs = split_text(text=transcript, chunk_size=1000, chunk_overlap=100)
       #initialize the LLM
       llm = initialize_llm(model="gpt-3.5-turbo-16k", temperature=0.1, api_key=api_key)
