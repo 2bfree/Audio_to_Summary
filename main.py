@@ -22,10 +22,11 @@ audio_file = st.file_uploader(label="Upload audio file",
 
 
 def transcribe_audio(audio_file):
-    transcription = openai.Audio.transcriptions.create(
+    transcription = openai.Audio.transcribe(
         model="whisper-1",
         file=audio_file,
-        language='ko'
+        language='ko',
+        api_key = api_key
     )
     return transcription['text']
 
