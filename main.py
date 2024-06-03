@@ -5,28 +5,27 @@ from lc_functions import split_text, initialize_llm, summarize_text
 
 st.title("Audio to :blue[_Summary_]")
 
-st.text("use the OpenAI Whisper function to convert your audio recording to a summary")
-st.text("use gpt-3.5-turbo-16k: faster and significantly cheaper to run")
-st.text('coded by Dr. Tseng  @zinojeng')
-
-
 # Get the open AI API Key
 api_key = st.text_input(
       label="OpenAI API Key", 
       placeholder="Ex: sk-2twmA8tfCb8un4...", 
       key="openai_api_key", 
       help="You can get your API key from https://platform.openai.com/account/api-keys/")
-os.environ["OPENAI_API_KEY"] = api_key
+
+if api_key:
+    os.environ["OPENAI_API_KEY"] = api_key
+    openai.api_key = api_key
 
 # File uploader
-audio = st.file_uploader(label="Upload audio file", 
+audio_file = st.file_uploader(label="Upload audio file", 
                          type=['wav','mp3','m4a'])
-if audio is not None:
+if audio_file is not None:
       # response = openai.Audio.transcribe(model="whisper-1", 
       #                                    file=audio, 
       #                                    api_key=api_key)
       response = openai.audio.transcriptions.create(model="whisper-1", 
-                                         file=audio)
+                                         file=audio_file,
+                                         language='ko')
    # Split the text into chunks
    
       transcriptions = response["text"]
