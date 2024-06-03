@@ -25,7 +25,7 @@ def transcribe_audio(audio_file):
     transcription = openai.Audio.transcribe(
         model="whisper-1",
         file=audio_file,
-        language='ko',
+        language='kr',
         api_key = api_key
     )
     return transcription['text']
