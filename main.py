@@ -25,7 +25,7 @@ if audio is not None:
       # response = openai.Audio.transcribe(model="whisper-1", 
       #                                    file=audio, 
       #                                    api_key=api_key)
-      response = openai.Audio.transcribe(model="whisper-1", 
+      response = openai.audio.transcribe.create(model="whisper-1", 
                                          file=audio)
    # Split the text into chunks
    
