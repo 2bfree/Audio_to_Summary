@@ -24,28 +24,23 @@ audio_file = st.file_uploader(label="Upload audio file",
 def transcribe_audio(audio_file):
     transcription = openai.Audio.transcribe(
         model="whisper-1",
-        file=audio_file,
-        api_key = api_key
+        file=audio_file
     )
     return transcription['text']
 
 
 if audio_file is not None:
-      # response = openai.Audio.transcribe(model="whisper-1", 
-      #                                    file=audio, 
-      #                                    api_key=api_key)
-      # response = openai.audio.transcriptions.create(model="whisper-1", 
-      #                                    file=audio_file,
-      #                                    language='ko')
+
    # Split the text into chunks
-  
-      transcript = transcribe_audio(audio_file)
-      # transcriptions = response["text"]
-      docs = split_text(text=transcript, chunk_size=1000, chunk_overlap=100)
-      #initialize the LLM
-      llm = initialize_llm(model="gpt-4o", temperature=0.1, api_key=api_key)
-      #llm2 = initialize_openai(model="gpt-3.5-turbo-16k", temperature=0, api_key=api_key)
-      # create a summary
-      summary = summarize_text(llm=llm, docs=docs)
-      #summary2 = llm2(prompt_template_questions)
-      st.write(summary)
+   transcript = transcribe_audio(audio_file)
+   
+   # transcriptions = response["text"]
+   docs = split_text(text=transcript, chunk_size=1000, chunk_overlap=100)
+   
+   #initialize the LLM
+   llm = initialize_llm(model="gpt-4o", temperature=0.1, api_key=api_key)
+   
+   # create a summary
+   summary = summarize_text(llm=llm, docs=docs)
+   
+   st.write(summary)
