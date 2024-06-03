@@ -13,7 +13,7 @@ Aim to retain the most important points,
 providing a coherent and readable summary that could help a person understand the main points of the discussion without needing to read the entire text.
 Please avoid unnecessary details or tangential points.
 
-Summary in korean with meeting report form:
+Summary in korean
 ------------
 {text}
 ------------
@@ -28,11 +28,12 @@ refine_template = (
     "Your job is to produce a final summary\n"
     "We have provided an existing summary up to a certain point: {existing_answer}\n"
     "We have the opportunity to refine the existing summary"
-    "(only if needed) with some more context below.\n"
+    "(only if needed) with some more context below.  \n"
     "------------\n"
     "{text}\n"
     "------------\n"
-    "Given the new context, refine the original summary and summary some keypoints from original text in korean ."
+    "Given the new context, refine the original summary within a meeting report form and"
+    "summary some keypoints from original text in korean."
     )
 refine_prompt = PromptTemplate(
     template=refine_template,
