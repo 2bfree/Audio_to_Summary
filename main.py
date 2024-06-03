@@ -32,7 +32,7 @@ if audio is not None:
       transcriptions = response["text"]
       docs = split_text(text=transcriptions, chunk_size=1000, chunk_overlap=100)
       #initialize the LLM
-      llm = initialize_llm(model="gpt-3.5-turbo-16k", temperature=0.1, api_key=api_key)
+      llm = initialize_llm(model="gpt-4o", temperature=0.1, api_key=api_key)
       #llm2 = initialize_openai(model="gpt-3.5-turbo-16k", temperature=0, api_key=api_key)
       # create a summary
       summary = summarize_text(llm=llm, docs=docs)
